@@ -1,0 +1,149 @@
+@import "compass/css3";
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,300,800);
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  overflow-x: hidden;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  line-height: 1;
+  color: #fff;
+  background: #ccd9e8;
+}
+@mixin epic-sides() {
+    position: relative;
+    z-index: 1;
+
+    &:before {
+        position: absolute;
+        content: "";
+        display: block;
+        top: 0;
+        left: -5000px;
+        height: 100%;
+        width: 15000px;
+        z-index: -1;
+        @content;
+    }
+}
+.row {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 30px;
+  background: #032429;
+  border-radius: 10px;
+  @include epic-sides() {background: inherit;}
+  text-align: center;
+  
+  
+  &:nth-child(3),
+  &:nth-child(7) {
+    background: linear-gradient(145deg, rgba(1,69,142,1) 45%, rgba(102,143,187,1) 100%);
+  }
+  
+  span {
+    position: relative;
+    display: inline-block;
+    margin: 30px 10px;
+  }
+}
+
+.balloon {
+
+  display: inline-block;
+  width: 215px;
+  padding: 10px 0 10px 15px;
+  font-family: "Open Sans", sans;
+  font-weight: 400;
+  color: #002247;
+  background: #efefef;
+  border: 0;
+  border-radius: 3px;
+  outline: 0;
+  text-indent: 100px; 
+  transition: all .3s ease-in-out;
+  
+  &::-webkit-input-placeholder {
+    color: #efefef;
+    text-indent: 0;
+    font-weight: 300;
+  }
+
+  + label {
+    display: inline-block;
+    position: absolute;
+    top: 8px;
+    left: 0;
+    bottom: 8px;
+    padding: 5px 15px;
+    color: #000d1c;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-shadow: 0 1px 0 rgba(19,74,70,0);
+    transition: all .3s ease-in-out;
+    border-radius: 3px;
+    background: rgba(122,184,147,0);
+    
+    &:after {
+      position: absolute;
+      content: "";
+      width: 0;
+      height: 0;
+      top: 100%;
+      left: 50%;
+      margin-left: -3px;
+      border-left: 3px solid transparent;
+      border-right: 3px solid transparent;
+      border-top: 3px solid rgba(122,184,147,0);
+      transition: all .3s ease-in-out;
+    }
+  }
+}
+.balloon:focus,
+.balloon:active {
+  color: #002247;
+  text-indent: 0;
+  background: #fff;
+  
+  &::-webkit-input-placeholder {
+    color: #aaa;
+  }
+  + label {
+    color: #000;
+    text-shadow: 0 1px 0 rgba(1,69,142,.4);
+    background: #ccd9e8;
+    transform: translateY(-40px);
+    
+    &:after {
+      border-top: 4px solid #ccd9e8;
+    }
+  }
+}
+.btn {
+    padding: 10px 16px;
+    background-color: #003399;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #01458e;
+}
+.btn1 {
+    padding: 10px 16px;
+    background-color: #DA241C;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.btn1:hover {
+    background-color: #dd3932;
+}
